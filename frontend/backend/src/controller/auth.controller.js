@@ -47,7 +47,7 @@ try {
    res.cookie('jwt',token,{
       maxAge:7 * 24 * 60 * 60 * 1000,
       httpOnly:true,        //prevents XSS Attacks
-      sameSite:"lax",    //prevents CSRF Attack
+      sameSite:"Strict",    //prevents CSRF Attack
       secure:process.env.NODE_ENV === "production"
    })
    res.status(201).json({success:true, user:newUser})
@@ -77,7 +77,7 @@ const user=await User.findOne({email})
    res.cookie('jwt',token,{
       maxAge:7 * 24 * 60 * 60 * 1000,
       httpOnly:true,        //prevents XSS Attacks
-      sameSite:"lax",    //prevents CSRF Attack
+      sameSite:"Strict",    //prevents CSRF Attack
       secure:process.env.NODE_ENV === "production"
    })
    res.status(200).json({success:true, user})
